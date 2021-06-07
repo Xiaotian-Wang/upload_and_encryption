@@ -1,0 +1,15 @@
+<!doctype html>
+    <title>上传文件</title>
+    <h3>上传新文件</h3>
+    <form method=post enctype=multipart/form-data>
+     <input type=file name=file>
+
+      </br>
+    设置密码
+      <input type="password" name="pass" maxlength=16 minlength=1>
+      </br>
+      <input type=submit value='上传'>
+
+    </form>
+   <br>
+    <a href="{{ url_for('list') }}">我的文件列表</a>

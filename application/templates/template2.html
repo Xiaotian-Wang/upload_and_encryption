@@ -1,0 +1,28 @@
+ <!DOCTYPE html>
+ <title>文件列表</title>
+ <h2>我的文件列表</h2>
+<table border='1'>
+ {% for file in file_list %}
+    <tr>
+      <td>{{ file.name }}</td>
+
+      <td>
+	  <input type="button" onclick="location.href='{{ url_for('return_file',filename=file.name) }}'" method=GET value="下载">
+      </td>
+	  	   <td>
+	<form method=post enctype=multipart/form-data>
+      输入密码:<input type="password" name="password" maxlength=16 minlength=1>
+	  <input type=hidden name="filename" value='{{file.name}}'>
+      </td>
+	   <td>
+    <input type=submit value='解密'> 
+      </td>
+	  </form>
+    </tr>
+  {% endfor %}
+</table>
+
+
+
+<br>
+<a href="{{ url_for('upload_file') }}" method="GET">上传文件</a> 
